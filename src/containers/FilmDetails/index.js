@@ -8,22 +8,22 @@ import {
   getCurrent as getCurrentFilmDetail,
   requestDetail as requestFilmDetail,
   getLoading as getCurrentFilmDetailLoading,
+  cleanForm
 } from "../../store/reducers/films";
-import {
-  addItem as addVisit,
-} from "../../store/reducers/visited";
+import { addItem as addVisit } from "../../store/reducers/visited";
 import FilmDetail from "../FilmDetails/FilmDetails";
 
 /* Local utility functions */
 
 const mapStateToProps = state => ({
   filmDetail: getCurrentFilmDetail(state),
-  loading:    getCurrentFilmDetailLoading(state),
-})
+  loading: getCurrentFilmDetailLoading(state)
+});
 
 const mapDispatchToProps = dispatch => ({
   getFilmById: id => dispatch(requestFilmDetail(id)),
-  addVisit: url => dispatch(addVisit(url))
+  addVisit: url => dispatch(addVisit(url)),
+  cleanForm: () => dispatch(cleanForm())
 });
 
 const enhance = compose(

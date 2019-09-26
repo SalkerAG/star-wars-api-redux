@@ -10,6 +10,21 @@ import create from "../../services/config";
 
 const api = create("films");
 
+export function* getListFilm() {
+  try {
+    const response = yield api.getAll({});
+
+    if (response.ok) {
+      const { results } = response.data;
+      yield put(successList(results));
+    } else {
+      yield put(failureList(response.originalError));
+    }
+  } catch (e) {
+    yield put(failureList(e));
+  }
+}
+
 export function* getFilms({ payload = {} }) {
   const { search } = payload;
 

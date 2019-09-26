@@ -11,10 +11,11 @@ export const {
   // done for you.
   actions: {
     failureForm: state => ({ ...state, loading: false, error: true }),
-    requestForm: state => ({ ...state, loading: false }),
+    requestForm: state => ({ ...state, loading: false, error: false }),
     successForm: (state, search) => ({
       ...state,
       loading: false,
+      error: false,
       current: search
     })
   },

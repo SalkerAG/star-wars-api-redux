@@ -4,19 +4,18 @@ import { Link } from "react-router-dom";
 import { flatten, last, map, match, pipe, split } from "ramda";
 
 const CarouselCardCharacter = ({ character }) => {
-
-    const getIdFromFilmUrl = pipe(
-        match(/people\/[0-9]*/gi),
-        map(split("/")),
-        flatten,
-        last
-      );
+  const getIdFromFilmUrl = pipe(
+    match(/people\/[0-9]*/gi),
+    map(split("/")),
+    flatten,
+    last
+  );
 
   return (
     <div className="container-fluid">
       <div className="card">
         <div className="card-body">
-          <h4 className="card-title">{character.name}</h4>
+          <h3 className="card-title">{character.name}</h3>
           <div className="card-text">
             <p>Género: {character.gender}</p>
             <p>Peso: {character.mass} kgs.</p>

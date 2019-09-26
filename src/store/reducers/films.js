@@ -9,6 +9,7 @@ export const {
     failureList,
     requestDetail,
     requestList,
+    requestAllFilms,
     successDetail,
     successList,
     cleanForm
@@ -18,10 +19,11 @@ export const {
   // No need to implement switching logic -- it's
   // done for you.
   actions: {
-    failureDetail: (state) => ({ ...state, fetching: false }),
-    failureList:   (state) => ({ ...state, error: true, fetching: false }),
-    requestDetail: (state) => ({ ...state, fetching: true }),
-    requestList:   (state) => ({ ...state, error: false, fetching: true }),
+    failureDetail: state => ({ ...state, loading: false }),
+    failureList: state => ({ ...state, error: true, loading: false }),
+    requestDetail: state => ({ ...state, loading: true }),
+    requestAllFilms: state => ({ ...state, loading: true }),
+    requestList: state => ({ ...state, error: false, loading: true }),
     successDetail: (state, film) => ({
       ...state,
       current: film,

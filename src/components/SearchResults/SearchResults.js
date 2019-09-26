@@ -8,7 +8,9 @@ import Film from "../Film/Film";
 /* Component definition */
 const SearchResults = ({ results, loading }) => {
   return loading ? (
-    <Spin />
+    <div className="card">
+      <Spin />
+    </div>
   ) : (
     <div className="card">{displayFilms(results)}</div>
   );

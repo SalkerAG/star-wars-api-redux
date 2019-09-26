@@ -10,12 +10,12 @@ const Header = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-6 justify-content-center mt-3 mb-3">
-            <Link to={"/peliculas"} className="btn btn-danger d-block ">
+            <Link to={"/films"} className="btn btn-danger d-block ">
               Peliculas
             </Link>
           </div>
           <div className="col-sm-6 justify-content-center mt-3 mb-3">
-            <Link to={"/personajes"} className="btn btn-danger d-block">
+            <Link to={"/characters"} className="btn btn-danger d-block">
               Personajes
             </Link>
           </div>

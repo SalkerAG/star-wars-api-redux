@@ -1,10 +1,5 @@
-
 import React, { useEffect, useState } from "react";
-import { flatten, last, map, match, pipe, split } from "ramda";
 import Select from "react-select";
-
-import { Link } from "react-router-dom";
-
 
 import SearchResults from "../../components/SearchResults/SearchResults";
 import Header from "../../components/Layout/Header";
@@ -128,7 +123,10 @@ const Main = props => {
         </div>
         <div className="col-md-3">
           <h2 className="text-center">CARRUSEL PERSONAJES</h2>
-           <CarouselCharacters characters={characters} loadingCharacters={loadingCharacters} />
+          <CarouselCharacters
+            characters={characters}
+            loadingCharacters={loadingCharacters}
+          />
         </div>
       </div>
     </>
@@ -137,15 +135,8 @@ const Main = props => {
 
 const loadVisitsLink = visited => {
   return visited.map((v, i) => {
-    return <Link to={`film/detail/${getIdFromFilmUrl(v.url)}`}>{v.title}</Link>;
+    return v;
   });
 };
-
-const getIdFromFilmUrl = pipe(
-  match(/films\/[0-9]*/gi),
-  map(split("/")),
-  flatten,
-  last
-);
 
 export default React.memo(Main);

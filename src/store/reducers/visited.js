@@ -1,7 +1,6 @@
 import autodux from "autodux";
-import { evolve } from "ramda";
-import { concat, flip, compose, uniq } from "ramda";
-const fconcat = flip(concat);
+
+import { compose, concat, uniq, evolve } from "ramda";
 
 export const {
   reducer,
@@ -13,7 +12,7 @@ export const {
   // No need to implement switching logic -- it's
   // done for you.
   actions: {
-    addItem: (state, visit) => evolve({ list: addToArray(visit) }, state)
+    addItem: (state, film) => evolve({ list: addToArray(film) }, state)
   },
 
   // The initial value of your reducer state
