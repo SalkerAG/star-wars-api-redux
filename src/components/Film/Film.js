@@ -23,7 +23,7 @@ const Film = ({ info }) => {
             <p>Producida: {producer}</p>
             <p>Lanzamiento: {release_date}</p>
             <Link
-              to={`/film/detail/:id${getIdFromFilmUrl(url)}`}
+              to={`/film/detail/${getIdFromFilmUrl(url)}`}
               className="btn btn-primary"
             >
               ¡Más información!

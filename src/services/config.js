@@ -4,7 +4,7 @@ import { concat, flip, when } from "crocks";
 const fconcat = flip(concat);
 
 // this will be our star wars api
-const baseUrl = "https://swapi.co/api";
+const baseUrl = "https://www.swapi.co/api";
 
 const api = create({
   baseURL: baseUrl

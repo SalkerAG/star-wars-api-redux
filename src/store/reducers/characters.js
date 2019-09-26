@@ -12,24 +12,24 @@ export const {
     successDetail,
     successList
   },
-  selectors: { getCurrent, getError, getFetching, getList }
+  selectors: { getCurrent, getError, getLoading, getList }
 } = autodux({
   // No need to implement switching logic -- it's
   // done for you.
   actions: {
-    failureDetail: state => ({ ...state, fetching: false }),
-    failureList: state => ({ ...state, error: true, fetching: false }),
-    requestDetail: state => ({ ...state, fetching: true }),
-    requestList: state => ({ ...state, error: false, fetching: true }),
-    successDetail: (state, film) => ({
+    failureDetail: state => ({ ...state, loading: false }),
+    failureList: state => ({ ...state, error: true, loading: false }),
+    requestDetail: (state) => ({ ...state, loading: true }),
+    requestList: state => ({ ...state, error: false, loading: true }),
+    successDetail: (state, character) => ({
       ...state,
-      current: film,
-      fetching: false
+      current: character,
+      loading: false
     }),
     successList: (state, list) => ({
       ...state,
       error: false,
-      fetching: false,
+      loading: false,
       list
     })
   },
@@ -37,7 +37,7 @@ export const {
   // The initial value of your reducer state
   initial: {
     error: false,
-    fetching: false,
+    loading: false,
     current: null,
     list: []
   },

@@ -4,13 +4,20 @@
   "private": true,
   "dependencies": {
     "apisauce": "^1.1.1",
+    "autodux": "^5.0.3",
     "crocks": "^0.12.4",
+    "moment": "^2.24.0",
     "ramda": "^0.26.1",
     "react": "^16.9.0",
     "react-alice-carousel": "^1.15.3",
     "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.0",
     "react-scripts": "3.1.2",
-    "react-select": "^3.0.5"
+    "react-select": "^3.0.5",
+    "react-slick": "^0.25.2",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

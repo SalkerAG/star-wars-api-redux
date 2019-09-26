@@ -1,10 +1,16 @@
-/* Global imports */
 import React from "react";
+import { Link } from "react-router-dom";
+import { flatten, last, map, match, pipe, split } from "ramda";
 
-/* Local imports */
-
-/* Component definition */
 const FilmCard = ({ film }) => {
+
+  const getIdFromFilmUrl = pipe(
+    match(/films\/[0-9]*/gi),
+    map(split("/")),
+    flatten,
+    last
+  );
+
   return (
     <>
       <div className="container-fluid">
@@ -16,13 +22,12 @@ const FilmCard = ({ film }) => {
               <p>Director: {film.director}</p>
               <p>Productor/es: {film.producer}</p>
               <p>Fecha de estreno: {film.release_date}</p>
-              {/* <Link
-                to={`/peliculas/${idAPI}`}
-                className="btn btn-primary"
-                params={{ id: idAPI }}
-              >
-                ¡Más información!
-              </Link> */}
+              <Link
+            to={`/film/detail/${getIdFromFilmUrl(film.url)}`}
+            className="btn btn-primary"
+          >
+            ¡Más información!
+          </Link>
             </div>
           </div>
         </div>

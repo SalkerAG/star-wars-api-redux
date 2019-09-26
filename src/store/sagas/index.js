@@ -1,6 +1,6 @@
 import { all, takeLatest } from "redux-saga/effects";
 
-export default function*() {
+export default function* () {
   yield all([
     takeLatest(
       require("../reducers/films").requestList.type,

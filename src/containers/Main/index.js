@@ -7,14 +7,14 @@ import { compose } from "crocks";
 import {
   requestList as requestFilmsList,
   getList as getFilmList,
-  getFetching as getFilmListFetching,
+  getLoading as getFilmListLoading,
   cleanForm
 } from "../../store/reducers/films";
 
 import {
   requestList as requestPeopleList,
   getList as getCharactersList,
-  getFetching as getCharacterListFetching
+  getLoading as getCharacterListLoading
 } from "../../store/reducers/characters";
 
 import { getList as getVisitedList } from "../../store/reducers/visited";
@@ -30,8 +30,8 @@ import {
 
 const mapStateToProps = state => ({
   films: getFilmList(state),
-  loading: getFilmListFetching(state),
-  loadingCharacters: getCharacterListFetching(state),
+  loading: getFilmListLoading(state),
+  loadingCharacters: getCharacterListLoading(state),
   characters: getCharactersList(state),
   visited: getVisitedList(state),
   errorForm: getErrorForm(state)

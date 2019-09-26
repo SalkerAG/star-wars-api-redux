@@ -1,17 +1,16 @@
-/* Global imports */
+
 import React, { useEffect, useState } from "react";
 import { flatten, last, map, match, pipe, split } from "ramda";
 import Select from "react-select";
 
 import { Link } from "react-router-dom";
 
-/* Local imports */
+
 import SearchResults from "../../components/SearchResults/SearchResults";
 import Header from "../../components/Layout/Header";
 import CarouselFilms from "../../components/Carousel/CarouselFilm";
-// import CarouselCharacters from "Components/CarouselCharacters";
+import CarouselCharacters from "../../components/Carousel/CarouselCharacters";
 
-/* Component definition */
 const Main = props => {
   const options = [
     { value: "A New Hope", label: "A New Hope" },
@@ -129,16 +128,16 @@ const Main = props => {
         </div>
         <div className="col-md-3">
           <h2 className="text-center">CARRUSEL PERSONAJES</h2>
-          {/* <Carousel /> */}
+           <CarouselCharacters characters={characters} loadingCharacters={loadingCharacters} />
         </div>
       </div>
     </>
   );
 };
 
-const loadVisitsLink = visits => {
-  return visits.map((v, i) => {
-    return <Link to={`/detail/${getIdFromFilmUrl(v.url)}`}>{v.title}</Link>;
+const loadVisitsLink = visited => {
+  return visited.map((v, i) => {
+    return <Link to={`film/detail/${getIdFromFilmUrl(v.url)}`}>{v.title}</Link>;
   });
 };
 

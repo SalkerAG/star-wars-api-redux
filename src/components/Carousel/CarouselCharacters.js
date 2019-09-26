@@ -1,38 +1,42 @@
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import FilmCard from "../../components/FilmCard/FilmCard";
+import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import { complement, defaultTo, either, isEmpty, isNil } from "ramda";
+import Spin from "../../components/Layout/Spin"
 
 const responsive = {
   0:    { items: 1 }
 };
-const Carousel = ({ films }) => {
-  const [carouselFilms, setCarouselFilms] = useState(defaultTo([], films));
+
+const Carousel = ({ characters, loadingCharacters }) => {
+  const [carouselCharacters, setCarouselCharacters] = useState(defaultTo([], characters));
 
   useEffect(() => {
-    if (isNotEmpty(films)) {
-      const carouselFilms = films.map((film, i) => (
-        <FilmCard key={i} film={film} />
+    if (isNotEmpty(characters)) {
+      const carouselCharacters = characters.map((character, i) => (
+        <CharacterCard key={i} character={character} />
       ));
 
-      setCarouselFilms(carouselFilms);
+      setCarouselCharacters(carouselCharacters);
     }
-  }, [films]);
+  }, [characters]);
 
   return (
     <>
-       <AliceCarousel
+    {loadingCharacters ? <Spin /> : (
+      <AliceCarousel
       autoPlay={true}
       autoPlayInterval={3000}
       fadeOutAnimation={false}
       responsive={responsive}
-      items={carouselFilms}
+      items={carouselCharacters}
       mouseDragEnabled={true}
       showSlideInfo={false}
       dotsDisabled={true}
       buttonsDisabled={true}
     />
+      )}
     </>
   );
 };
